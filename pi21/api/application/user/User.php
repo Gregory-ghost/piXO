@@ -10,7 +10,7 @@ class User {
         }
         return false;
     }
-
+    //Написать
     public function logout() {}
 
     public function registration() {}

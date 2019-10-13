@@ -49,62 +49,62 @@ class PiXO {
     // проверяет результат в конкреной Cell
     private function checkCell($r1, $r2) {
         $cell = $this->field[$r1][$r2];
-        for($i = 0; $i < 3; $i++) {
-            for($j = 0; $j < 3; $j++) {
+        for($i = 0; $i < count($this->gamers); $i++) {
+            for($j = 0; $j < count($this->gamers); $j++) {
                 $x = 0; $o = 0;
-                if($cell->field[$i][$j] == $this::SIDE_X) {
+                if($cell->field[$i][$j] === $this::SIDE_X) {
                     $x++;
-                } elseif($cell->field[$i][$j] == $this::SIDE_O) {
+                } elseif($cell->field[$i][$j] === $this::SIDE_O) {
                     $o++;
                 }
-                if($x == 3) {
+                if($x === count($this->gamers)) {
                     return $this::SIDE_X;
-                } elseif($o == 3) {
+                } elseif($o === count($this->gamers)) {
                     return $this::SIDE_O;
                 }
             }
         }
 
-        for($j = 0; $j < 3; $j++) {
-            for($i = 0; $i < 3; $i++) {
+        for($j = 0; $j < count($this->gamers); $j++) {
+            for($i = 0; $i < count($this->gamers); $i++) {
                 $x = 0; $o = 0;
-                if($cell->field[$i][$j] == $this::SIDE_X) {
+                if($cell->field[$i][$j] === $this::SIDE_X) {
                     $x++;
-                } elseif($cell->field[$i][$j] == $this::SIDE_O) {
+                } elseif($cell->field[$i][$j] === $this::SIDE_O) {
                     $o++;
                 }
-                if($x == 3) {
+                if($x === count($this->gamers)) {
                     return $this::SIDE_X;
-                } elseif($o == 3) {
+                } elseif($o === count($this->gamers)) {
                     return $this::SIDE_O;
                 }
             }
         }
 
-        for($i = 0; $i < 3; $i++) {
+        for($i = 0; $i < count($this->gamers); $i++) {
             $x = 0; $o = 0;
-            if($cell->field[$i][$i] == $this::SIDE_X) {
+            if($cell->field[$i][$i] === $this::SIDE_X) {
                 $x++;
-            } elseif($cell->field[$i][$i] == $this::SIDE_O) {
+            } elseif($cell->field[$i][$i] === $this::SIDE_O) {
                 $o++;
             }
-            if($x == 3) {
+            if($x === count($this->gamers)) {
                 return $this::SIDE_X;
-            } elseif($o == 3) {
+            } elseif($o === count($this->gamers)) {
                 return $this::SIDE_O;
             }
         }
 
-        for($i = 0; $i < 3; $i++) {
+        for($i = 0; $i < count($this->gamers); $i++) {
             $x = 0; $o = 0;
-            if($cell->field[$i][3-$i-1] == $this::SIDE_X) {
+            if($cell->field[$i][count($this->gamers)-$i-1] === $this::SIDE_X) {
                 $x++;
-            } elseif($cell->field[$i][3-$i-1] == $this::SIDE_O) {
+            } elseif($cell->field[$i][count($this->gamers)-$i-1] === $this::SIDE_O) {
                 $o++;
             }
-            if($x == 3) {
+            if($x === count($this->gamers)) {
                 return $this::SIDE_X;
-            } elseif($o == 3) {
+            } elseif($o === count($this->gamers)) {
                 return $this::SIDE_O;
             }
         }
@@ -113,62 +113,62 @@ class PiXO {
 
     // проверяет результат всей игры
     public function checkGame($game) {
-        for($i = 0; $i <3;$i++) {
-            for($j = 0;$j<3;$j++) {
+        for($i = 0; $i < count($this->gamers); $i++) {
+            for($j = 0; $j < count($this->gamers); $j++) {
                 $x = 0; $o = 0;
-                if($game->field[$i][$j]->result == $this::SIDE_X) {
+                if($game->field[$i][$j]->result === $this::SIDE_X) {
                     $x++;
-                } elseif($game->field[$i][$j]->result == $this::SIDE_O) {
+                } elseif($game->field[$i][$j]->result === $this::SIDE_O) {
                     $o++;
                 }
-                if($x == 3) {
+                if($x === count($this->gamers)) {
                     return $this::SIDE_X;
-                } elseif($o == 3) {
+                } elseif($o === count($this->gamers)) {
                     return $this::SIDE_O;
                 }
             }
         }
 
-        for($j = 0; $j < 3; $j++) {
-            for($i = 0; $i < 3; $i++) {
+        for($j = 0; $j < count($this->gamers); $j++) {
+            for($i = 0; $i < count($this->gamers); $i++) {
                 $x = 0; $o = 0;
-                if($game->field[$i][$j]->result == $this::SIDE_X) {
+                if($game->field[$i][$j]->result === $this::SIDE_X) {
                     $x++;
-                } elseif($game->field[$i][$j]->result == $this::SIDE_O) {
+                } elseif($game->field[$i][$j]->result === $this::SIDE_O) {
                     $o++;
                 }
-                if($x == 3) {
+                if($x === count($this->gamers)) {
                     return $this::SIDE_X;
-                } elseif($o == 3) {
+                } elseif($o === count($this->gamers)) {
                     return $this::SIDE_O;
                 }
             }
         }
 
-        for($i = 0; $i < 3; $i++) {
+        for($i = 0; $i < count($this->gamers); $i++) {
             $x = 0; $o = 0;
-            if($game->field[$i][$i]->result == $this::SIDE_X) {
+            if($game->field[$i][$i]->result === $this::SIDE_X) {
                 $x++;
-            } elseif($game->field[$i][$i]->result == $this::SIDE_O) {
+            } elseif($game->field[$i][$i]->result === $this::SIDE_O) {
                 $o++;
             }
-            if($x == 3) {
+            if($x === count($this->gamers)) {
                 return $this::SIDE_X;
-            } elseif($o == 3) {
+            } elseif($o === count($this->gamers)) {
                 return $this::SIDE_O;
             }
         }
 
-        for($i = 0; $i < 3; $i++) {
+        for($i = 0; $i < count($this->gamers); $i++) {
             $x = 0; $o = 0;
-            if($game->field[$i][3-$i-1]->result == $this::SIDE_X) {
+            if($game->field[$i][count($this->gamers)-$i-1]->result === $this::SIDE_X) {
                 $x++;
-            } elseif($game->field[$i][3-$i-1]->result == $this::SIDE_O) {
+            } elseif($game->field[$i][count($this->gamers)-$i-1]->result === $this::SIDE_O) {
                 $o++;
             }
-            if($x == 3) {
+            if($x === count($this->gamers)) {
                 return $this::SIDE_X;
-            } elseif($o == 3) {
+            } elseif($o === count($this->gamers)) {
                 return $this::SIDE_O;
             }
         }
